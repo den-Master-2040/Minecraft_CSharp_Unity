@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class VoxelData : MonoBehaviour
 {
+    public readonly static int ChunkWidth = 5;
+    public readonly static int ChunkHeight = 5;
+
     /*Vertex for cube*/
     public static readonly Vector3[] voxelVerts = new Vector3[8]
     {   
@@ -15,6 +18,16 @@ public class VoxelData : MonoBehaviour
         new Vector3(1.0f, 0.0f, 1.0f),
         new Vector3(1.0f, 1.0f, 1.0f),
         new Vector3(0.0f, 1.0f, 1.0f)
+    };
+
+    public static readonly Vector3[] faceChunks = new Vector3[6]
+    {
+        new Vector3(0.0f, 0.0f, -1.0f),
+        new Vector3(0.0f, 0.0f, 1.0f),
+        new Vector3(0.0f, 1.0f, 0.0f),
+        new Vector3(0.0f, -1.0f, 0.0f),
+        new Vector3(-1.0f, 0.0f, 0.0f),
+        new Vector3(1.0f, 0.0f, 0.0f),
     };
 
     /*massive for read*/
