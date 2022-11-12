@@ -5,7 +5,15 @@ using UnityEngine;
 public class VoxelData : MonoBehaviour
 {
     public readonly static int ChunkWidth = 5;
-    public readonly static int ChunkHeight = 15;
+    public readonly static int ChunkHeight = 4;
+
+
+    public static readonly int TextureAtlasSizeInBlock = 4;
+
+    public static float NormalizedBlockTextureSize
+    {
+        get { return 1f / (float)TextureAtlasSizeInBlock; }
+    }
 
     /*Vertex for cube*/
     public static readonly Vector3[] voxelVerts = new Vector3[8]
