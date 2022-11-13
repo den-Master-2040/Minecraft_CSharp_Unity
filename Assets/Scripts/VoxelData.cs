@@ -5,8 +5,13 @@ using UnityEngine;
 public class VoxelData : MonoBehaviour
 {
     public readonly static int ChunkWidth = 5;
-    public readonly static int ChunkHeight = 4;
+    public readonly static int ChunkHeight = 15;
+    public readonly static int WorldSizeInChunks = 4;
 
+    public static int WorldSizeInVoxel
+    {
+        get { return WorldSizeInChunks * ChunkWidth; }
+    }
 
     public static readonly int TextureAtlasSizeInBlock = 4;
 
@@ -28,6 +33,8 @@ public class VoxelData : MonoBehaviour
         new Vector3(0.0f, 1.0f, 1.0f)
     };
 
+
+    /*Rendered*/
     public static readonly Vector3[] faceChunks = new Vector3[6]
     {
         new Vector3(0.0f, 0.0f, -1.0f),
@@ -49,6 +56,7 @@ public class VoxelData : MonoBehaviour
         { 1, 2, 5, 6 }    // Right Face
     };
 
+    /*Textures*/
     public static readonly Vector2[] voxelUvs = new Vector2[4]{
         new Vector2(0.0f, 0.0f),
         new Vector2(0.0f, 1.0f),
