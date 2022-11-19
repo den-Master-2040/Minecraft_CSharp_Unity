@@ -4,12 +4,27 @@ using UnityEngine;
 
 public static class VoxelData
 {
+<<<<<<< HEAD
 
     public static readonly int ChunkWidth = 5;
     public static readonly int ChunkHeight = 15;
     public static readonly int WorldSizeInChunks = 50;
     public static readonly int ViewDistanceInChunks = 8;
     public static int WorldSizeInBlocks
+=======
+    public readonly static int ChunkWidth = 5;
+    public readonly static int ChunkHeight = 15;
+    public readonly static int WorldSizeInChunks = 4;
+
+    public static int WorldSizeInVoxel
+    {
+        get { return WorldSizeInChunks * ChunkWidth; }
+    }
+
+    public static readonly int TextureAtlasSizeInBlock = 4;
+
+    public static float NormalizedBlockTextureSize
+>>>>>>> e8bf3279b9737f1834339b8245598ebf98b48f68
     {
 
         get { return WorldSizeInChunks * ChunkWidth; }
@@ -37,8 +52,15 @@ public static class VoxelData
 
     };
 
+<<<<<<< HEAD
     public static readonly Vector3[] faceChecks = new Vector3[6] {
 
+=======
+
+    /*Rendered*/
+    public static readonly Vector3[] faceChunks = new Vector3[6]
+    {
+>>>>>>> e8bf3279b9737f1834339b8245598ebf98b48f68
         new Vector3(0.0f, 0.0f, -1.0f),
         new Vector3(0.0f, 0.0f, 1.0f),
         new Vector3(0.0f, 1.0f, 0.0f),
