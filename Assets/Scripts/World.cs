@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class World : MonoBehaviour
 {
+<<<<<<< HEAD
 
     public Transform player;
     public Vector3 spawn;
 
+=======
+>>>>>>> e8bf3279b9737f1834339b8245598ebf98b48f68
     public Material material;
     public BlockType[] blocktypes;
 
     Chunk[,] chunks = new Chunk[VoxelData.WorldSizeInChunks, VoxelData.WorldSizeInChunks];
+<<<<<<< HEAD
     List<ChunkCoord> activeChunks = new List<ChunkCoord>();
     ChunkCoord playerLastChunkCoord;
 
@@ -164,6 +168,58 @@ public class ChunkCoord
 
     }
 
+=======
+
+    private void Start()
+    {
+        GenerateWorld();
+
+    }
+
+    void GenerateWorld()
+    {
+        for(int x = 0; x < VoxelData.WorldSizeInChunks; x++)
+            for (int z = 0; z < VoxelData.WorldSizeInChunks; z++)
+            {
+                CreateNewChunk(x, z);
+            }
+    }
+    //1-stone
+    //0 - bedrock
+    //2 - grass
+    public byte GetVoxel(Vector3 pos)
+    {
+        if (pos.y < 1)
+            return 0;
+        else if (pos.y == VoxelData.ChunkHeight - 1)
+            return 2;
+        else return 1;
+    }
+    
+    void CreateNewChunk(int x, int z)
+    {
+        chunks[x, z] = new Chunk(new ChunkCoord(x, z), this);
+    }
+
+    bool isChunkInWorld(ChunkCoord coord)
+    {
+        if (coord.x > 0 && coord.x < VoxelData.WorldSizeInChunks - 1 && 
+            coord.z > 0 && coord.z < VoxelData.WorldSizeInChunks - 1)
+            return true;
+        else
+            return false;
+    }
+
+    bool IsVoxelInWorld (Vector3 pos)
+    {
+        if (pos.x > 0 && pos.x < VoxelData.WorldSizeInChunks - 1 && 
+            pos.y > 0 && pos.y < VoxelData.ChunkHeight - 1 &&
+            pos.z > 0 && pos.z < VoxelData.WorldSizeInChunks - 1)
+            return true;
+        else
+            return false;
+    }
+>>>>>>> e8bf3279b9737f1834339b8245598ebf98b48f68
 }
 
 [System.Serializable]
